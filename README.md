@@ -14,7 +14,7 @@ Status: `developing`
 
 Helper: Bootstrap?
 
-This project is a part of _"showcases"_ | Changelog: `wedeeohVersions.md` -> [to file](travacationsVersions.md)
+This project is a part of _"showcases"_ | Changelog: `wedeeohVersions.md` -> [to file](wedeeohVersions.md)
 
 Root path: `showcases.[domain name]/wedeeoh`
 
