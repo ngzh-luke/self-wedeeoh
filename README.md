@@ -2,7 +2,7 @@
 
 ## About
 
-`#wedeeoh` is a simple static web where you download video from supported sites. Its name comes from _"video"_ word pronunciation-like. ~~It is now live at: [link]~~
+`#wedeeoh` is a simple dynamic where you download video from supported sites. Its name comes from _"video"_ word pronunciation-like. ~~It is now live at: [link]~~
 
 ---
 
@@ -38,4 +38,4 @@ Root path: `showcases.[domain name]/wedeeoh`
 
 ---
 
-**last updated:** _`May 5, 2023 @22:01`_
+**last updated:** _`May 5, 2023 @22:20`_
