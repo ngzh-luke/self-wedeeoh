@@ -16,7 +16,7 @@ Helper: Bootstrap?
 
 This project is a part of _"showcases"_ | Changelog: `wedeeohVersions.md` -> [to file](wedeeohVersions.md)
 
-Root path: `showcases.[domain name]/wedeeoh`
+Root path: `wedeeoh.showcases.[domain name]/`
 
 ### General Features and/or Settings
 
@@ -38,4 +38,4 @@ Root path: `showcases.[domain name]/wedeeoh`
 
 ---
 
-**last updated:** _`May 5, 2023 @22:20`_
+**last updated:** _`May 7, 2023 @00:00`_

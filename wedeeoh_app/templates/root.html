@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,13 +26,52 @@
         font-family: "Kanit", sans-serif;
         display: flex;
       }
+
+      @media screen and (min-width: 768px) {
+        /* large screen setting */
+        body {
+          float: none;
+          width: 100%;
+          background-color: red;
+        }
+      }
     </style>
   </head>
-  <body>
+  <body onload="getSysInfo()">
     <div class="container">
-      {% block content %}<a href="/">Click Here To Redirect To HOME Page</a>
+      {% block content %}<a href="/wedeeoh/"
+        ><button type="button" class="btn btn-info">
+          To wedeeoh HOME Page
+        </button>
+      </a>
       {% endblock %}
     </div>
   </body>
-  <footer>This is footer</footer>
+  <script>
+    function getSysInfo() {
+      console.log("fetching system info..");
+      const elem = document.getElementById("sysInfo");
+
+      fetch("/return-wedeeoh-app-info/")
+        .then((response) => response.text())
+        .then((response) => {
+          if (response.length >= 900) {
+            // text form of html
+            elem.innerText = "";
+            throw TypeError;
+          }
+          elem.innerText = response;
+        })
+        .catch(() => {
+          const info = "ERROR: unable to retrieve correct WEDEEOH system info";
+          console.log(info);
+        });
+    }
+  </script>
+  {% block footer %}
+  <footer class="fixed-bottom bg-secondary clearfix">
+    This is footer
+    <div id="sysInfo"></div>
+  </footer>
+  {% endblock %}
 </html>

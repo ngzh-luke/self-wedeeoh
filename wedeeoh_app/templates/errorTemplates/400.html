@@ -1,0 +1,29 @@
+{% extends "root.html" %} {% block title %}ER400: BAD REQUEST{% endblock %} {%
+block content %}
+<style>
+  h3 {
+    color: crimson;
+  }
+  body {
+    background-color: cadetblue;
+  }
+</style>
+
+<div class="py-5 px-2" align="center">
+  <h3 style="font-size: 3.8em; font-weight: bolder">BAD REQUEST</h3>
+  <h5 style="font-size: 1.4em; color: rgb(235, 238, 69)">
+    Sorry, Our server cannot process the request due to something that is
+    perceived to be a client error, please try again or contact
+    <u><i>System Administrator</i></u> if you believe this is a mistake.
+  </h5>
+  <br />
+  <a role="button" class="btn btn-outline-light btn-lg px-4 fw-bold" href="#"
+    >Contact now</a
+  >
+  <br />
+  <br />
+
+  <a role="button" class="btn btn-warning" href="/">Back Home</a>
+</div>
+
+{% endblock %} {% block footer %} {% endblock %}

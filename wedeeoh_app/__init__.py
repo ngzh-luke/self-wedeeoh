@@ -10,19 +10,22 @@ except:
     PORT = 8000
 
 def create_app():
-    DOMAIN = f"lukecreated.com:{PORT}"
+    DOMAIN = f"showcases.lukecreated.com:{PORT}" # showcases.lukecreated.com
     app = Flask(__name__)
     app.config['SECRET_KEY'] = en_var('wedeeoh') # encrepted with Environment Variable
     app.config['REMEMBER_COOKIE_SECURE'] = True
     app.config['PERMANENT_SESSION_LIFETIME'] = TIMEOUT # set session timeout (need to use with before_request() below)
+    app.config['SESSION_COOKIE_DOMAIN'] = False # prevent cookies to be access across domain and subdomain
     app.config['TIMEZONE'] = 'Asia/Bangkok'
     app.config['SERVER_NAME'] = DOMAIN
 
     from .views.errorHandling import not_found, bad_request # import errors views
     from .views.views import views # import views
+    from .apis import api
 
-    app.register_blueprint(rootView, url_prefix='/')
-    app.register_blueprint(views, url_prefix='/wedeeoh')
+    app.register_blueprint(dev, url_prefix='/')
+    app.register_blueprint(views, url_prefix='/')
+    app.register_blueprint(api, url_prefix='/')
     app.register_error_handler(404, not_found)
     app.register_error_handler(400, bad_request)
     
@@ -52,15 +55,15 @@ class About():
     def getSystemVersion(self) -> str:
         return str(self.version)
 
-systemInfoObject = About(version=0.1, status='Initial development',
-                         build=20230506, version_note='development starts')
+systemInfoObject = About(version=0.11, status='Initial development',
+                         build=20230507, version_note='app infras implement')
 systemInfo = systemInfoObject.__str__()
 systemVersion = systemInfoObject.getSystemVersion()
 
 # Below codes meant for development only
 # subdomain `dev4wedeeoh` will not get access in production
-rootView = Blueprint('rootView', __name__)
-@rootView.route("/root-template-view/", subdomain='dev4wedeeoh')
+dev = Blueprint('dev', __name__)
+@dev.route("/root-template/", subdomain='dev4wedeeoh') # dev4wedeeoh.showcases.lukecreated.com
 def root_view():
     try: 
         return render_template("root.html")
